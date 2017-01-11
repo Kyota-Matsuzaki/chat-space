@@ -21,7 +21,7 @@ has_many :user_groups
 
 |   column   |    type     | restriction |
 |:-----------|:------------|:------------|
-|  body      |  text       |  not_null   |
+|  name      |  text       |  not_null   |
 |  e-mail    |             |             |
 |  password  |             |             |
 
