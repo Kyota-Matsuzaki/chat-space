@@ -8,7 +8,7 @@ belongs_to :group
 
 |   column   |    type     | restriction |
 |:-----------|:------------|:------------|
-|  body      |  text       |             |
+|  name      |  text       |             |
 |  image     |  string     |             |
 |  user_id   |  integer    |  not_null   |
 |  group_id  |  integer    |  not_null   |
@@ -17,6 +17,7 @@ belongs_to :group
 
 has_many :messages
 has_many :groups, through: user_groups
+has_many :user_groups
 
 |   column   |    type     | restriction |
 |:-----------|:------------|:------------|
@@ -28,6 +29,7 @@ has_many :groups, through: user_groups
 
 has_many :messages
 has_many :users, through: user_groups
+has_many :user_groups
 
 |   column   |    type     | restriction |
 |:-----------|:------------|:------------|
