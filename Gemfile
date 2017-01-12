@@ -40,6 +40,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
 
   gem 'haml-rails'
+  gem 'erb2haml'
 end
 
 group :development do
