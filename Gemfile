@@ -41,6 +41,7 @@ group :development, :test do
 
   gem 'haml-rails'
   gem 'erb2haml'
+  gem "font-awesome-rails"
 end
 
 group :development do
