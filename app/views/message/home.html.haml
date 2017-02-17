@@ -1,0 +1,33 @@
+%body
+  .contents
+    .menu
+      .chat-user
+        %h4 user-name
+        .chat-user__icon
+          =fa_icon "pencil-square-o"
+          =fa_icon "cog"
+      %ul.chat-groups
+        %li.chat-group
+          %p.chat-group__name テックキャンプ
+          %p.chat-group__message aaa
+    .main-screen
+      .main-header
+        .main-header--left
+          %h2 group name
+          %p.group-menbers Members: kyota
+        .main-header--right
+          %a.edit-btn Edit
+      .main-body
+        %ul.chat-messages
+          %li.chat-message
+            .chat-message__header.clearfix
+              %p.chat-message__name aaa
+              %p.chat-message__time  2017/02/23 12:12:12
+            %p.chat-message__body  aaa
+      .main-footer
+        %form.new-message
+          .main-footer__body
+            %textarea.typing-box{placeholder: "type a message"}
+            .main-footer__image
+              =fa_icon "image"
+            %input{type: "submit"}
