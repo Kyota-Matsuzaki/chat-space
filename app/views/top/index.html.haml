@@ -5,7 +5,8 @@
         %h4 user-name
         .chat-user__icon
           =fa_icon "pencil-square-o"
-          =fa_icon "cog"
+          =link_to edit_user_registration_path do
+            =fa_icon "cog"
       %ul.chat-groups
         %li.chat-group
           %p.chat-group__name テックキャンプ
