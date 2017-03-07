@@ -4,11 +4,18 @@ class GroupsController < ApplicationController
     @group = Group.new
   end
 
+  def edit
+    @group = Group.find(params[:id])
+  end
+
   def create
     Group.create(groups_params)
   end
 
   def update
+    group = Group.find(params[:id])
+    group.update(groups_params)
+    redirect_to "/"
   end
 
   private
