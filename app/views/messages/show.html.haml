@@ -9,14 +9,17 @@
             =fa_icon "pencil-square-o"
           =link_to edit_user_registration_path do
             =fa_icon "cog"
-      %ul.chat-groups
-        %li.chat-group
-          %p.chat-group__name テックキャンプ
-          %p.chat-group__message aaa
+      - @groups.each do |group|
+        %ul.chat-groups
+          %li.chat-group
+            = link_to "/messages/#{group.id}", method: :get do
+              %p.chat-group__name
+                =group.name
+              %p.chat-group__message aaa
     .main-screen
       .main-header
         .main-header--left
-          %h2 group name
+          %h2=@group.name
           %p.group-menbers Members: kyota
         .main-header--right
           =link_to 'Edit', edit_group_path, class: "edit-btn"

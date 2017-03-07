@@ -10,6 +10,7 @@ class GroupsController < ApplicationController
 
   def create
     Group.create(groups_params)
+    redirect_to "/"
   end
 
   def update
