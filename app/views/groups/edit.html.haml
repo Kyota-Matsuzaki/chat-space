@@ -2,6 +2,12 @@
   .chat-group-form
     %h1 チャットグループ編集
     = form_for @group do |f|
+      - if @group.errors.any?
+        #error_explanation.alert.alert-danger
+          %h2= pluralize(@group.errors.count, "error")
+          %ul
+          - @group.errors.full_messages.each do |message|
+            %li= message
       .chat-group-form__field.clearfix
         .chat-group-form__field--left
           %label.chat-group-form__label{:for => "chat_group_name"} グループ名
@@ -26,4 +32,4 @@
       .chat-group-form__field.clearfix
         .chat-group-form__field--left
         .chat-group-form__field--right
-          %input.chat-group-form__action-btn{"data-disable-with" => "Save", :name => "commit", :type => "submit", :value => "Save"}/
+          = f.submit "Save", class: "chat-group-form__action-btn"
