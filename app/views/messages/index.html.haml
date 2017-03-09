@@ -1,0 +1,43 @@
+%body
+  .contents
+    .menu
+      .chat-user
+        %h4
+          =current_user.name
+        .chat-user__icon
+          =link_to new_group_path do
+            =fa_icon "pencil-square-o"
+          =link_to edit_user_registration_path do
+            =fa_icon "cog"
+      - @groups.each do |group|
+        %ul.chat-groups
+          %li.chat-group
+            = link_to group_messages_path(group) do
+              %p.chat-group__name
+                =group.name
+              %p.chat-group__message aaa
+    .main-screen
+      .main-header
+        .main-header--left
+          %h2=@group.name
+          %p.group-menbers Members: #{user_names(@group)}
+        .main-header--right
+          =link_to 'Edit', edit_group_path(@group), class: "edit-btn"
+      .main-body
+        - @group.messages.each do |message|
+          %ul.chat-messages
+            %li.chat-message
+              .chat-message__header.clearfix
+                %p.chat-message__name
+                  =message.user.name
+                %p.chat-message__time
+                  =message.created_at
+              %p.chat-message__body
+                =message.name
+      .main-footer
+        = form_for [@group, @message], class: 'new-message' do |f|
+          .main-footer__body
+            = f.text_area :name, placeholder: "type a message", class: "typing-box"
+            .main-footer__image
+              =fa_icon "image"
+            = f.submit "送信"
