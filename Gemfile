@@ -45,7 +45,9 @@ group :development, :test do
   gem 'pry-doc'    # methodを表示
   gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
   gem 'pry-stack_explorer' # スタックをたどれる
-
+ gem 'rspec-rails', "~> 3.1.0"
+  gem 'factory_girl_rails', "~> 4.4.1"
+   gem 'rails-controller-testing'
 
 end
 
@@ -59,7 +61,14 @@ group :development do
 
 end
 
+group :test do
+  gem 'faker'
+
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'rake', '< 11.0'
+
 
 
