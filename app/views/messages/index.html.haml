@@ -35,7 +35,7 @@
               %p.chat-message__body
                 =message.name
       .main-footer
-        = form_for [@group, @message], class: 'new-message' do |f|
+        = form_for [@group, @message] do |f|
           .main-footer__body
             = f.text_area :name, placeholder: "type a message", class: "typing-box"
             .main-footer__image
