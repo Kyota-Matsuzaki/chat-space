@@ -26,9 +26,9 @@
         .chat-group-form__field--right
           #chat-group-users
             #chat-group-user-22.chat-group-user.clearfix
-              .check_box
-                = f.collection_check_boxes(:user_ids, User.all, :id, :name) do |b|
-                  = b.label { b.check_box + b.text }
+              %ul#chat-group-users-added
+                %li=current_user.name
+                =f.hidden_field "user_ids][", value: current_user.id, id: "users-value"
       .chat-group-form__field.clearfix
         .chat-group-form__field--left
         .chat-group-form__field--right

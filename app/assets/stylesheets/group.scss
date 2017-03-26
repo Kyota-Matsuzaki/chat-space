@@ -115,3 +115,21 @@
 #error_explanation {
   text-align: center;
 }
+
+.user-search-result__name {
+  margin-top: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-search-result__add-btn {
+  float: right;
+}
+
+#chat-group-users-added__delete-btn {
+  float: right;
+  color: #FF4500;
+}
+
+.chat-group-users-added__name {
+  border-top: 1px solid #ddd;
+}

@@ -3,14 +3,16 @@ $(function(){
   function buildHTML(data) {
 
     var html =
-      '<ul class = "chat-messages" >'+
-        '<li class = "chat-message" >' +
-          '<div class = "chat-message__header clearfix">'+
-            '<p class = "chat-message__name">'+ data.name +
-            '</p><p class = "chat-message__time">'+ data.time +
-            '</p></div>'+
-          '<p class = "chat-message__body">'+ data.message +
-        '</p></li></ul>';
+      `<ul class = "chat-messages" >
+        <li class = "chat-message" >
+          <div class = "chat-message__header clearfix">
+            <p class = "chat-message__name"> ${data.name}
+            </p><p class = "chat-message__time"> ${data.time}
+            </p></div>
+          <p class = "chat-message__body"> ${data.message}
+          </p>
+        </li>
+      </ul>`;
     return html;
   };
 
