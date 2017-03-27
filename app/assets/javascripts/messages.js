@@ -21,8 +21,6 @@ $(function(){
     e.preventDefault();
     var textField = $('.typing-box');
     var fd = new FormData($('#new_message').get(0));
-    // debugger;
-    // console.log(fd)
     $.ajax({
       type: "POST",
       url: "./messages",
