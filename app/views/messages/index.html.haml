@@ -34,10 +34,15 @@
                   =message.created_at
               %p.chat-message__body
                 =message.name
+              - if message.image.url.present?
+                =image_tag message.image.url
       .main-footer
         = form_for [@group, @message] do |f|
           .main-footer__body
             = f.text_area :name, placeholder: "type a message", class: "typing-box"
             .main-footer__image
-              =fa_icon "image"
+              %label
+                =fa_icon "image"
+                = f.file_field :image, style: "display: none"
+              = f.hidden_field :image_cache
             = f.submit "送信"
