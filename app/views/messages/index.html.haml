@@ -43,6 +43,6 @@
             .main-footer__image
               %label
                 =fa_icon "image"
-                = f.file_field :image, style: "display: none"
+                = f.file_field :image, style: "display: none", name: "_file"
               = f.hidden_field :image_cache
             = f.submit "送信"
