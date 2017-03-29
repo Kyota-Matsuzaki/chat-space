@@ -40,6 +40,7 @@ gem 'erb2haml'
 gem 'devise'
 gem 'jquery-turbolinks'
 
+
 gem 'carrierwave'
 gem 'rmagick'
 gem 'fog-aws'
