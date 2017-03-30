@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
 
   $('.main-footer').on('submit', function(e) {
     e.preventDefault();
@@ -51,4 +51,16 @@ $(function(){
       }
   return html;
   };
+
+
+  setInterval(function(){
+    $.ajax({
+      type: 'GET',
+      url: './messages',
+      dataType: 'json'
+    })
+      .done(function(data){
+        builtHTML(data);
+      });
+  }, 5000);
 });
