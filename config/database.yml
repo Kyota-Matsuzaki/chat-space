@@ -47,13 +47,13 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 
-user:
-  <<: *default
-  password: <%= ENV['CHAT-SPACE_DATABASE_PASSWORD'] %>
+# user:
+#   <<: *default
+#   password: <%= ENV['CHAT-SPACE_DATABASE_PASSWORD'] %>
 
 production:
   <<: *default
   database: chat-space_production
-  username: chat-space
-  password: <%= ENV['CHAT-SPACE_DATABASE_PASSWORD'] %>
+  # username: chat-space
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
