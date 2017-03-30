@@ -48,6 +48,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 
 user:
+  <<: *default
   password: <%= ENV['CHAT-SPACE_DATABASE_PASSWORD'] %>
 
 production:
