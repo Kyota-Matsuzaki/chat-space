@@ -1,6 +1,34 @@
 $(function(){
 
-  function buildHTML(data) {
+  $('.main-footer').on('submit', function(e) {
+    e.preventDefault();
+    var textField = $('.typing-box');
+    var fd = new FormData($('#new_message').get(0));
+      $.ajax({
+        type: "POST",
+        url: "./messages",
+        data: fd,
+        processData: false,
+        contentType: false,
+        dataType: 'json'
+      })
+    .done(function(data) {
+      var html = builtHTML(data);
+      $('.main-body').append(html);
+      textField.val('');
+      return false;
+    })
+    .fail(function() {
+      alert('error');
+      return false;
+    });
+  });
+
+  $(document).on('change', '#message_image', function(){
+    $('#new_message').trigger('submit');
+  });
+
+  function builtHTML(data) {
 
     var html =
       `<ul class = "chat-messages" >
@@ -10,32 +38,17 @@ $(function(){
             </p><p class = "chat-message__time"> ${data.time}
             </p></div>
           <p class = "chat-message__body"> ${data.message}
-          </p>
+          </p>`;
+
+      if (data.image){
+        html += `<img src="${data.image.url}", height="200", width="200">
         </li>
       </ul>`;
-    return html;
+      }
+      else{
+        html += `</li>
+      </ul>`;
+      }
+  return html;
   };
-
-
-  $('.main-footer').on('submit', function(e) {
-    e.preventDefault();
-    var textField = $('.typing-box');
-    var fd = new FormData($('#new_message').get(0));
-    $.ajax({
-      type: "POST",
-      url: "./messages",
-      data: fd,
-      processData: false,
-      contentType: false,
-      dataType: 'json'
-    })
-    .done(function(data) {
-      var html = buildHTML(data);
-      $('.main-body').append(html);
-      textField.val('');
-    })
-    .fail(function() {
-      alert('error');
-    });
-  });
 });
