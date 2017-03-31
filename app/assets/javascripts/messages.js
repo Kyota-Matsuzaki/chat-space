@@ -3,7 +3,7 @@ $(document).on('turbolinks:load', function(){
   $('.main-footer').on('submit', function(e) {
     e.preventDefault();
     var textField = $('.typing-box');
-    var fd = new FormData($('#new_message').get(0));
+    var fd = new FormData($('#new_message').get(0) );
       $.ajax({
         type: "POST",
         url: "./messages",
