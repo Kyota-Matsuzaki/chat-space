@@ -24,15 +24,14 @@ $(function(){
       $('#user-search-result').append('<ul id = "user-search-result__list"> </ul>')
       $.each (data, function(i,user){
           var user_html =
-            `
-             <li id = "user-search-result-${i}" >
-               <div class= "user-search-result__name" >
-                 ${user.name}
-                 <a href = "" class = "user-search-result__add-btn-${i}" id = "user-search-result__add-btn">
-                 追加
-                 </a>
-               </div>
-             </li>`;
+             '<li id = "user-search-result-' + 'i' + '" >' +
+               '<div class= "user-search-result__name" >' +
+                 'user.name' +
+                 '<a href = "" class = "user-search-result__add-btn-' + 'i' + '" id = "user-search-result__add-btn">' +
+                 '追加' +
+                 '</a>' +
+               '</div>' +
+             '</li>';
           $('#user-search-result__list').append(user_html);
             addUser(i,user);
       });
@@ -40,21 +39,21 @@ $(function(){
 
 
   function addUser(i,user){
-    $(`.user-search-result__add-btn-${i}`).on("click", function(e){
+    $('.user-search-result__add-btn-' + 'i').on("click", function(e){
       e.preventDefault();
-      $(`#user-search-result-${i}`).empty();
+      $('#user-search-result' + 'i' + ).empty();
 
       var add_user_html =
-      `<li id = "chat-group-users-added-${i}" >
-        <input value="${user.id}" id="users-value" type="hidden" name="group[user_ids][]">
-        </input>
-        <div class = "chat-group-users-added__name">
-          ${user.name}
-          <a href = "" class = "chat-group-users-added__delete-btn-${i}" id = "chat-group-users-added__delete-btn">
-          削除
-          </a>
-        </div>
-      </li>`;
+      '<li id = "chat-group-users-added-'+ 'i' + '" >' +
+        '<input value="' + 'user.id' + '" id="users-value" type="hidden" name="group[user_ids][]">' +
+        '</input>' +
+        '<div class = "chat-group-users-added__name">' +
+          'user.name' +
+          '<a href = "" class = "chat-group-users-added__delete-btn-' + 'i' + '" id = "chat-group-users-added__delete-btn">' +
+          '削除' +
+          '</a>' +
+        '</div>' +
+      '</li>';
       $("#chat-group-users-added").append(add_user_html);
       removeUser(i,user)
 
@@ -62,22 +61,21 @@ $(function(){
   };
 
   function removeUser(i,user){
-    $(`.chat-group-users-added__delete-btn-${i}`).on("click", function(e){
+    $('.chat-group-users-added__delete-btn-' + 'i').on("click", function(e){
       e.preventDefault();
-       $(`#chat-group-users-added-${i}`).remove()
+       $('#chat-group-users-added' + 'i').remove()
     });
     repositUserToList(i,user);
   };
 
   function repositUserToList (i, user){
-    var reposit_user_html = `
-           <div class= "user-search-result__name" >
-             ${user.name}
-             <a href = "" class = "user-search-result__add-btn" id = "user-search-result__add-btn-${i}">
-             追加
-             </a>
-           </div>
-       `;
+    var reposit_user_html =
+           '<div class= "user-search-result__name" >' +
+             'user.name' +
+             '<a href = "" class = "user-search-result__add-btn" id = "user-search-result__add-btn-' + 'i' + '">' +
+             '追加' +
+             '</a>' +
+           '</div>';
   };
 
 });
