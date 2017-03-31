@@ -1,7 +1,8 @@
 $(function(){
   $("#user-search-field").on("keyup", function(e){
     e.preventDefault();
-    var input = $.trim($("#user-search-field").val() );
+    var user = $("#user-search-field").val();
+    var input = $.trim(user);
     $.ajax({
       type: 'GET',
       url: '/users',
