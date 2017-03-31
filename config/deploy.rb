@@ -1,5 +1,14 @@
 lock '3.8.0'
 
+set :default_env, {
+    rbenv_root: "/usr/local/rbenv",
+    path: "~/.rbenv/shims:~/.rbenv/bin:$PATH",
+    aws_access_key_id: ENV["ACCESS_KEY_ID"],
+    aws_secret_access_key: ENV["SECRET_ACCESS_KEY"],
+    resion: 'ap-northeast-1'
+}
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+set :sidekiq_queue, :carrierwave
 set :application, 'chat-space'
 set :repo_url, 'git@github.com:Kyota-Matsuzaki/chat-space.git'
 
