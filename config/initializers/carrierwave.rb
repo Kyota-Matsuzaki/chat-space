@@ -11,6 +11,16 @@ CarrierWave.configure do |config|
     region: 'ap-northeast-1'
   }
 
+set :default_env, {
+    rbenv_root: "/usr/local/rbenv",
+    path: "~/.rbenv/shims:~/.rbenv/bin:$PATH",
+    resion: 'ap-northeast-1'
+    aws_access_key_id: ENV["ACCESS_KEY_ID"],
+    aws_secret_access_key: ENV["SECRET_ACCESS_KEY"]
+}
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+set :sidekiq_queue, :carrierwave
+
     case Rails.env
     when 'development'
         config.fog_directory  = 'chat-space1'
