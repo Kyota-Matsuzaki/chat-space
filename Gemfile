@@ -53,6 +53,11 @@ group :development, :test do
  gem 'rspec-rails', "~> 3.1.0"
   gem 'factory_girl_rails', "~> 4.4.1"
    gem 'rails-controller-testing'
+     gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
 
 end
 
@@ -78,11 +83,7 @@ gem 'rake', '< 11.0'
 
 group :production do
   gem 'unicorn'
-  gem 'capistrano'
-  gem 'capistrano-rbenv'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano3-unicorn'
+
 end
 
 
