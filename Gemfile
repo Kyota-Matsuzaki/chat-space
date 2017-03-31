@@ -38,6 +38,7 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'devise'
 gem 'jquery-turbolinks'
+gem "figaro"
 
 
 gem 'carrierwave'
